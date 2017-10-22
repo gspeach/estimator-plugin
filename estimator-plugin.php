@@ -36,7 +36,28 @@ class wp_tool extends WP_Widget {
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <p>
+     
+     <form action="/action_page.php">
+		First name: <input type="text" name="FirstName"><br>
+		Last name: <input type="text" name="LastName"><br>
+		Email: <input type="text" name="Email"><br>
+		Phone: <input type="text" name="Phone"><br>
+        Moving from Zip Code: <input type="text" name="fromZip"><br>
+        Moving from Home Type: <select name="fromHomeType"> 
+                                <option></option>
+                                <option>Town Home</option>
+                               </select><br>
+
+       Moving to Zip Code: <input type="text" name="toZip"><br>
+       Moving to Home Type: <select name="toHomeType"> 
+                                 <option></option>
+                                <option>Apartment</option>
+                               </select><br>
+	<input type="submit" value="Submit">
+	</form>
+
+    </p>
   </div>
 
 </div>
