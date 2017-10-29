@@ -36,3 +36,8 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+//The form
+.formContent{
+	display: none;
+}
