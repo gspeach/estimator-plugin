@@ -30,27 +30,34 @@ class wp_estimatorTool extends WP_Widget {
 <!--Trigger/Open the Modal -->
 <button id="button">Open Modal</button>
 
-<!-- Form 1 Modal -->
+<!-- Form Modal -->
 <div id="modal" class="modal" >
 
 <!-- Modal content -->
 <div class="modal-content">
 	<span class="close">&times;</span>
-	<form id="formcontent">
-		First name: <input type="text" id="FirstName"><br>
-		Last name: <input type="text" name="LastName"><br>
-		Email: <input type="text" name="Email"><br>
-		Phone: <input type="text" name="Phone"><br>
-		Moving Date: <input type="date" name="Date"><br>
+	
+	<form id="form1" style="display: none"><br>
+		First name: <input type="text" id="firstname"><br>
+		Last name: <input type="text" id="lastname"><br>
+		Email: <input type="text" id="email"><br>
+		Phone: <input type="text" id="phone"><br>
+		Moving Date: <input type="date" id="date"><br><br>
+		<input id="submitOne" type="button" value="Submit">
 	</form>
-	<button id="submit" type="submit">Submit</button>
+	
+	<form id="form2" style="display: none"><br>
+		Thank you!<br> Please..................<br>Tell us more?<br><br>
+		<input id="submitTwo" type="button" value="Yes">
+		<input id="cancelTwo" type="button" value="No">
+	</form>
+	
+	<form id="form3" style="display: none"><br>
+		next cscdscdsc
+		<input id="submitThree" type="button" value="Yes">
+	</form>
 </div>
 </div>
-		
-		
-		
-		
-		
 		'; //close the echo statement.
 	}
 }
