@@ -38,11 +38,12 @@ class wp_estimatorTool extends WP_Widget {
 	<span class="close">&times;</span>
 	
 	<form id="form1" style="display: none"><br>
-		First name: <input type="text" id="firstname"><br>
-		Last name: <input type="text" id="lastname"><br>
-		Email: <input type="text" id="email"><br>
-		Phone: <input type="text" id="phone"><br>
-		Moving Date: <input type="date" id="date"><br><br>
+		Get your free qoute by filling out the form!
+		<input type="text" id="firstname" placeholder="First Name">
+		<input type="text" id="lastname" placeholder="Last Name">
+		<input type="email" id="email" placeholder="Email">
+		<input type="text" id="phone" placeholder="Phone Number">
+		<input type="text" id="date" placeholder="Moving Date" onfocus="(this.type=\'date\')" onblur="(this.type=\'text\')"><br><br>
 		<input id="submitOne" type="button" value="Submit">
 	</form>
 	
@@ -53,8 +54,44 @@ class wp_estimatorTool extends WP_Widget {
 	</form>
 	
 	<form id="form3" style="display: none"><br>
-		next cscdscdsc
-		<input id="submitThree" type="button" value="Yes">
+		Thanks for providing more information! This will help us give you a more accurate quote.
+		<textarea col="50" row="5" id="comments" placeholder="Comments"></textarea>
+		<select id="whomoveing">
+			<option disabled selected>Who is moving?</option>
+			<option value="Owner">Owner</option>
+			<option value="Partial Packing">Partial packing requested</option>
+			<option value="Full Packing">Full packing requested</option>
+			<option value="Unpacking">Unpacking requested</option>
+		</select>
+		<input type="text" id="fromzip" placeholder="Moving from Zipcode">
+		<select id="hometype">
+			<option disabled selected>Home Type</option>
+			<option value="Condo/Apartment">Condo/Apartment</option>
+			<option value="Townhome">Townhome</option>
+			<option value="Single">Single Home</option>
+		</select>
+		<input type="text" id="tozip" placeholder="Moving to Zipcode"><br><br>
+		
+		<div id="rooms">
+		Give us details by room. Click the (+) to add more fields.
+			<input type="text" class="room1" placeholder="Room Name">
+			<select class="room1">
+				<option disabled selected>Furnished:</option>
+				<option value="lightly">Lightly (500lbs)</option>
+				<option value="medium">Medium (1000lbs)</option>
+				<option value="heavy">Heavy (2000lbs)</option>
+			</select>
+			<input type="text" class="room1" placeholder="Additional details..."><br><br>
+		</div>
+		
+		<br><br>
+		<input id="addRooms" type="button" value=" + ">
+		<input id="submitThree" type="button" value="Submit">
+	</form>
+	
+	<form id="form4" style="display: none"><br>
+		Thank you!<br><br>Pleasessess.........<br><br>
+		<input id="submitFour" type="button" value="OK"> 
 	</form>
 </div>
 </div>
