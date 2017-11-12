@@ -36,7 +36,7 @@ class wp_estimatorTool extends WP_Widget {
 <!-- Modal content -->
 <div class="modal-content">
 	<span class="close">&times;</span>
-	
+	<span id="errors" class="errors"></span>
 	<form id="form1" style="display: none"><br>
 		Get your free qoute by filling out the form!
 		<input type="text" id="firstname" placeholder="First Name">

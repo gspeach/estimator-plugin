@@ -54,14 +54,47 @@ if(typeof(Storage) !== "undefined"){
 	
 	//When the user clicks the submit button on form 1, saves the data to local web storage and advances the form
 	submitOne.onclick = function(){
-		localStorage.setItem("firstname", document.getElementById("firstname").value);
-		localStorage.setItem("lastname", document.getElementById("lastname").value);
-		localStorage.setItem("email", document.getElementById("email").value);
-		localStorage.setItem("phone", document.getElementById("phone").value);
-		localStorage.setItem("date", document.getElementById("date").value);
+		var errors = [];
+		document.getElementById("errors").innerHTML = "";
+
+		if (document.getElementById("firstname").value != '') {
+			localStorage.setItem("firstname", document.getElementById("firstname").value);
+		} else {
+			errors.push("First name required!");
+		}
+
+		if (document.getElementById("lastname").value != '') {
+			localStorage.setItem("lastname", document.getElementById("lastname").value);
+		} else {
+			errors.push("Last name required!");
+		}
+
+		if (document.getElementById("email").value != '') {
+			localStorage.setItem("email", document.getElementById("email").value);
+		} else {
+			errors.push("Email required!");
+		}
+
+		if (document.getElementById("phone").value != '') {
+			localStorage.setItem("phone", document.getElementById("phone").value);
+		} else {
+			errors.push("Phone number required!");
+		}
+
+		if (document.getElementById("date").value != '') {
+			localStorage.setItem("date", document.getElementById("date").value);
+		} else {
+			errors.push("Date required!");
+		}
 		
-		form1.style.display="none";
-		form2.style.display="block";
+		if (errors.length > 0) {
+			for (var i = errors.length - 1; i >= 0; i--) {
+				document.getElementById("errors").innerHTML += errors[i] + "<br>";
+			}
+		} else {
+			form1.style.display="none";
+			form2.style.display="block";
+		}
 	}
 	
 	submitTwo.onclick = function(){
