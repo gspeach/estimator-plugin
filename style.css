@@ -27,7 +27,7 @@
 
 /* Modal Content outer*/
 .modal-content-outer {
-    background-color: rgba(87,186,71,0.66);
+    background-color: rgba(87,186,71,0.66) !important;
     margin: auto;
     padding-bottom: 20px;
     width: 60%;
@@ -39,6 +39,7 @@
     margin: auto;
     padding: 20px;
     width: 98%;
+    border: 1px solid #888;
 }
 
 /* The Close Button */

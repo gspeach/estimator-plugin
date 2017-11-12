@@ -34,12 +34,13 @@ class wp_estimatorTool extends WP_Widget {
 <div id="modal" class="modal" >
 
 <!-- Modal content -->
-<span class="close">&times;</span>
 <div class="modal-header">
-	FREE MOVING QUOTE
+FREE MOVING QUOTE
 </div>
 <div class="modal-content-outer">
 <div class="modal-content">
+	<span class="close">&times;</span>
+	
 	<form id="form1" style="display: none"><br>
 		<input type="text" id="firstname" placeholder="First Name">
 		<input type="text" id="lastname" placeholder="Last Name">
