@@ -108,12 +108,45 @@ if(typeof(Storage) !== "undefined"){
 	}
 	
 	submitThree.onclick = function(){
-		localStorage.setItem("comments", document.getElementById("comments").value);
-		localStorage.setItem("whomoveing", document.getElementById("whomoveing").value);
-		localStorage.setItem("fromzip", document.getElementById("fromzip").value);
-		localStorage.setItem("hometype", document.getElementById("hometype").value);
-		localStorage.setItem("tozip", document.getElementById("tozip").value);
+
+		var errors = [];
+		document.getElementById("errors").innerHTML = "";
+
+		if (document.getElementById("comments").value != '') {
+			localStorage.setItem("comments", document.getElementById("comments").value);
+		} else {
+			errors.push("comments required!");
+		}
+
+		if (document.getElementById("whomoveing").value != '') {
+			localStorage.setItem("whomoveing", document.getElementById("whomoveing").value);
+		} else {
+			errors.push("Who is Moveing?");
+		}
+
+		if (document.getElementById("fromzip").value != '') {
+				localStorage.setItem("fromzip", document.getElementById("fromzip").value);
+		} else {
+			errors.push("From what zip code?");
+		}
+
+		if (document.getElementById("hometype").value != '') {
+			localStorage.setItem("hometype", document.getElementById("hometype").value);
+		} else {
+			errors.push("Home Type required!");
+		}
+
+		if (document.getElementById("tozip").value != '') {
+			localStorage.setItem("tozip", document.getElementById("tozip").value);
+		} else {
+			errors.push("To what zip code?");
+		}
 		
+		if (errors.length > 0) {
+			for (var i = errors.length - 1; i >= 0; i--) {
+				document.getElementById("errors").innerHTML += errors[i] + "<br>";
+			}
+		} else {
 		while (document.getElementsByClassName("room"+i).length > 0){
 			var room = document.getElementsByClassName("room"+i);
 			
@@ -123,6 +156,9 @@ if(typeof(Storage) !== "undefined"){
 		
 		form3.style.display = "none";
 		form4.style.display = "block";
+		}
+
+		
 	}
 	
 	submitFour.onclick = function(){

@@ -53,7 +53,9 @@ class wp_estimatorTool extends WP_Widget {
 		<input id="cancelTwo" type="button" value="No">
 	</form>
 	
+
 	<form id="form3" style="display: none"><br>
+	<span id="errors" class="errors"></span>
 		Thanks for providing more information! This will help us give you a more accurate quote.
 		<textarea col="50" row="5" id="comments" placeholder="Comments"></textarea>
 		<select id="whomoveing">
