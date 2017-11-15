@@ -43,7 +43,7 @@ class wp_estimatorTool extends WP_Widget {
 		<input type="text" id="lastname" placeholder="Last Name">
 		<input type="email" id="email" placeholder="Email">
 		<input type="text" id="phone" placeholder="Phone Number">
-		<input type="text" id="date" placeholder="Moving Date" onfocus="(this.type=\'date\')" onblur="(this.type=\'text\')"><br><br>
+		<input type="text" id="date" placeholder="Moving Date" onfocus="this.type=\'date\'" onblur="this.type=\'text\'"><br><br>
 		<input id="submitOne" type="button" value="Submit">
 	</form>
 	
@@ -74,17 +74,16 @@ class wp_estimatorTool extends WP_Widget {
 		
 		<div id="rooms">
 		Give us details by room. Click the (+) to add more fields.
-			<input type="text" class="room1" placeholder="Room Name">
-			<select class="room1">
+			<input type="text" id="roomName0" placeholder="Room Name">
+			<select id="roomFurnished0">
 				<option disabled selected>Furnished:</option>
 				<option value="lightly">Lightly (500lbs)</option>
 				<option value="medium">Medium (1000lbs)</option>
 				<option value="heavy">Heavy (2000lbs)</option>
 			</select>
-			<input type="text" class="room1" placeholder="Additional details..."><br><br>
+			<input type="text" id="roomDetail0" placeholder="Additional details..."><br><br>
 		</div>
 		
-		<br><br>
 		<input id="addRooms" type="button" value=" + ">
 		<input id="submitThree" type="button" value="Submit">
 	</form>

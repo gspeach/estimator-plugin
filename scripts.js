@@ -26,17 +26,25 @@ if(typeof(Storage) !== "undefined"){
 	var submitThree = document.getElementById("submitThree");
 	var submitFour = document.getElementById("submitFour");
 	
-	var i = 1;
+	var roomNumber = 0;
+	var i = 0;
 
 	// When the user clicks the button, open the first form 
 	btn.onclick = function() {
 		modal.style.display = "block";
 		form1.style.display = "block";
+		localStorage.clear();
 	}
 
 	// When the user clicks on <span> (x), close the form
 	span.onclick = function() {
 		modal.style.display = "none";
+		form1.style.display = "none";
+		form1.reset();
+		form2.style.display = "none";
+		form3.style.display = "none";
+		form3.reset();
+		form4.style.display = "none";
 	}
 
 	// When the user clicks anywhere outside of the modal, close it
@@ -113,16 +121,16 @@ if(typeof(Storage) !== "undefined"){
 		localStorage.setItem("fromzip", document.getElementById("fromzip").value);
 		localStorage.setItem("hometype", document.getElementById("hometype").value);
 		localStorage.setItem("tozip", document.getElementById("tozip").value);
-		
-		while (document.getElementsByClassName("room"+i).length > 0){
-			var room = document.getElementsByClassName("room"+i);
-			
-			localStorage.setItem("room"+i, JSON.stringify(room));
+		var room;
+		while (document.getElementById("roomName"+i) != null){
+			room = [document.getElementById("roomName"+i).value, document.getElementById("roomFurnished"+i).value, document.getElementById("roomDetail"+i).value]
+			localStorage.setItem("room"+i, room);
 			i = i+1;
 		}
-		
 		form3.style.display = "none";
 		form4.style.display = "block";
+		form3.reset();
+		
 	}
 	
 	submitFour.onclick = function(){
@@ -131,8 +139,8 @@ if(typeof(Storage) !== "undefined"){
 	}
 	
 	roomButton.onclick = function(){
+		roomNumber = roomNumber+1;
 		var container = document.getElementById("rooms");
-		var roomNumber = "room"+i;
 		var input1 = document.createElement("input");
 		var selectList = document.createElement("select");
 		var option1 = document.createElement("option");
@@ -142,10 +150,10 @@ if(typeof(Storage) !== "undefined"){
 		var input2 = document.createElement("input");
 		
 		input1.type = "text";
-		input1.className = roomNumber;
+		input1.id = "roomName"+roomNumber;
 		input1.placeholder = "Room Name";
 		container.appendChild(input1);
-		selectList.className = roomNumber;
+		selectList.id = "roomFurnished"+roomNumber;
 		container.appendChild(selectList);
 		option1.disabled = true;
 		option1.selected = true;
@@ -161,7 +169,7 @@ if(typeof(Storage) !== "undefined"){
 		option4.text = "Heavy (2000lbs)";
 		selectList.appendChild(option4);
 		input2.type="text";
-		input2.className = roomNumber;
+		input2.id = "roomDetail"+roomNumber;
 		input2.placeholder = "Addtional details...";
 		container.appendChild(input2);
 		container.appendChild(document.createElement("br"));
