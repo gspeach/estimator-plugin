@@ -37,59 +37,70 @@ class wp_estimatorTool extends WP_Widget {
 <div class="modal-content">
 	<span class="close">&times;</span>
 	<span id="errors" class="errors"></span>
-	<form id="form1" style="display: none"><br>
-		Get your free qoute by filling out the form!
-		<input type="text" id="firstname" placeholder="First Name">
-		<input type="text" id="lastname" placeholder="Last Name">
-		<input type="email" id="email" placeholder="Email">
-		<input type="text" id="phone" placeholder="Phone Number">
-		<input type="text" id="date" placeholder="Moving Date" onfocus="this.type=\'date\'" onblur="this.type=\'text\'"><br><br>
+	<form id="form1" style="display: none">
+		<p>Get your free quote by filling out the form!</p>
+		<label for="firstname">First Name:</label>
+		<input type="text" id="firstname">
+		<label for="lastname">Last Name:</label>
+		<input type="text" id="lastname">
+		<label for="email">Email:</label>
+		<input type="email" id="email" placeholder="something@gmail.com">
+		<label for="phone">Phone Number:</label>
+		<input type="text" id="phone" placeholder="123-456-7891">
+		<label for="date">Move Date:</label>
+		<input type="text" id="date" placeholder="11/02/2017"><br><br>
 		<input id="submitOne" type="button" value="Submit">
 	</form>
 	
-	<form id="form2" style="display: none"><br>
-		Thank you!<br> Please..................<br>Tell us more?<br><br>
+	<form id="form2" style="display: none">
+		<p>Thank you! Please tell us more?</p>
 		<input id="submitTwo" type="button" value="Yes">
 		<input id="cancelTwo" type="button" value="No">
 	</form>
 	
-	<form id="form3" style="display: none"><br>
-		Thanks for providing more information! This will help us give you a more accurate quote.
-		<textarea col="50" row="5" id="comments" placeholder="Comments"></textarea>
+	<form id="form3" style="display: none">
+		<p>Thanks for providing more information! This will help us give you a more accurate quote.</p>
+		<label for="comments">Comments:</label>
+		<textarea row="4" col="50" id="comments"></textarea>
+		<label for="whomoveing">Who is moving?</label>
 		<select id="whomoveing">
-			<option disabled selected>Who is moving?</option>
+			<option disabled selected> -- select an option -- </option>
 			<option value="Owner">Owner</option>
 			<option value="Partial Packing">Partial packing requested</option>
 			<option value="Full Packing">Full packing requested</option>
 			<option value="Unpacking">Unpacking requested</option>
 		</select>
-		<input type="text" id="fromzip" placeholder="Moving from Zipcode">
+		<label for="fromzip">Moving from Zipcode:</label>
+		<input type="text" id="fromzip">
+		<label for="hometype">Home Type:</label>
 		<select id="hometype">
-			<option disabled selected>Home Type</option>
+			<option disabled selected> -- select an option -- </option>
 			<option value="Condo/Apartment">Condo/Apartment</option>
 			<option value="Townhome">Townhome</option>
 			<option value="Single">Single Home</option>
 		</select>
-		<input type="text" id="tozip" placeholder="Moving to Zipcode"><br><br>
-		
+		<label for="tozip">Moving to Zipcode:</label>
+		<input type="text" id="tozip"><br><br>
 		<div id="rooms">
-		Give us details by room. Click the (+) to add more fields.
-			<input type="text" id="roomName0" placeholder="Room Name">
+			<p>Give us details by room. Click the (+) to add more fields.</p>
+			<label for="roomName0">Room Name:</label>
+			<input type="text" id="roomName0">
+			<label for="roomFurnished0">Furnished:</label>
 			<select id="roomFurnished0">
-				<option disabled selected>Furnished:</option>
+				<option disabled selected> -- select an option -- </option>
 				<option value="lightly">Lightly (500lbs)</option>
 				<option value="medium">Medium (1000lbs)</option>
 				<option value="heavy">Heavy (2000lbs)</option>
 			</select>
-			<input type="text" id="roomDetail0" placeholder="Additional details..."><br><br>
+			<label for="roomDetail0">Additional details...</label>
+			<input type="text" id="roomDetail0"><br><br>
 		</div>
-		
 		<input id="addRooms" type="button" value=" + ">
 		<input id="submitThree" type="button" value="Submit">
 	</form>
-	
-	<form id="form4" style="display: none"><br>
-		Thank you!<br><br>Pleasessess.........<br><br>
+
+	<form id="form4" style="display: none">
+		<p>Thank you!</p>
 		<input id="submitFour" type="button" value="OK"> 
 	</form>
 </div>
