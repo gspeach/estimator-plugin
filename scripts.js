@@ -19,7 +19,8 @@ btn.onclick = function() {
 	if(typeof(Storage) !== "undefined") { //Checks for support
 		modal.style.display = "block";
 		form1.style.display = "block";
-		localStorage.clear();
+		
+		initLocalStorage();
 	} else { //Displays error message in modal content instead of form.
 		document.getElementById("modal-content").innerHTML = "Sorry your broswer does not support Web Storage...";
 	}
@@ -97,6 +98,8 @@ submitTwo.onclick = function(){
 cancelTwo.onclick = function(){
 	modal.style.display = "none";
 	form2.style.display = "none";
+
+	sendForm();
 }
 
 submitThree.onclick = function(){
@@ -151,6 +154,8 @@ submitThree.onclick = function(){
 		form4.style.display = "block";
 		form3.reset();
 	}
+
+	sendForm();
 }
 
 submitFour.onclick = function(){
@@ -213,6 +218,44 @@ roomButton.onclick = function(){
 	container.appendChild(document.createElement("br"));
 }
 
+function initLocalStorage() {
+	localStorage.setItem("firstname", '');
+	localStorage.setItem("lastname", '');
+	localStorage.setItem("email", '');
+	localStorage.setItem("phone", '');
+	localStorage.setItem("date", '');
+	localStorage.setItem("whomoveing", '');
+	localStorage.setItem("fromzip", '');
+	localStorage.setItem("hometype", '');
+	localStorage.setItem("tozip", '');
+	localStorage.setItem("comments", '');
+	localStorage.setItem("room0", '');
+}
+
+function sendForm() {
+	var firstname = localStorage.getItem("firstname"),
+		lastname = localStorage.getItem("lastname"),
+		email = localStorage.getItem("email"),
+		phone = localStorage.getItem("phone"),
+		date = localStorage.getItem("date"),
+		whomoveing = localStorage.getItem("whomoveing"),
+		fromzip = localStorage.getItem("fromzip"),
+		hometype = localStorage.getItem("hometype"),
+		tozip = localStorage.getItem("tozip"),
+		comments = localStorage.getItem("comments");
+
+	console.log(firstname);
+	console.log(lastname);
+	console.log(email);
+	console.log(phone);
+	console.log(date);
+	console.log(whomoveing);
+	console.log(fromzip);
+	console.log(hometype);
+	console.log(tozip);
+	console.log(comments);
+}
+
 function closeAll() {
 	modal.style.display = "none";
 	form1.style.display = "none";
@@ -243,6 +286,6 @@ function validateEmail(str) {
 
 function validateZip(str) {
 	var pattern = /^\d{5}(-\d{4})?$/g;
-	
+
 	return pattern.test(str);
 }

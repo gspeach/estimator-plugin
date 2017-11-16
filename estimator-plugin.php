@@ -62,7 +62,7 @@ class wp_estimatorTool extends WP_Widget {
 		<p>Thanks for providing more information! This will help us give you a more accurate quote.</p>
 		<label for="comments">Comments:</label>
 		<textarea row="4" col="50" id="comments"></textarea>
-		<label for="whomoveing">Who is moving?</label>
+		<label for="whomoveing">Who is packing?</label>
 		<select id="whomoveing">
 			<option disabled selected> -- select an option -- </option>
 			<option value="Owner">Owner</option>
