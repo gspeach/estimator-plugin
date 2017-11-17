@@ -103,7 +103,7 @@ cancelTwo.onclick = function(){
 }
 
 submitThree.onclick = function(){
-	var room,
+	var room, i, j,
 		errors = [],
 		comments = document.getElementById("comments").value,
 		whomoveing = document.getElementById("whomoveing").value,
@@ -146,7 +146,7 @@ submitThree.onclick = function(){
 	}
 
 	if (errors.length > 0) {
-		for (var i = errors.length - 1; i >= 0; i--) {
+		for (var j = errors.length - 1; j >= 0; j--) {
 			document.getElementById("errors").innerHTML += errors[i] + "<br>";
 		}
 	} else {
@@ -166,56 +166,117 @@ submitFour.onclick = function(){
 roomButton.onclick = function(){
 	var container = document.getElementById("rooms"),
 		input1 = document.createElement("input"),
-		selectList = document.createElement("select"),
-		option1 = document.createElement("option"),
-		option2 = document.createElement("option"),
-		option3 = document.createElement("option"),
-		option4 = document.createElement("option"),
+		selectListA = document.createElement("select"),
+		option1A = document.createElement("option"),
+		option2A = document.createElement("option"),
+		option3A = document.createElement("option"),
+		option4A = document.createElement("option"),
+		selectListB = document.createElement("select"),
+		option1B = document.createElement("option"),
+		option2B = document.createElement("option"),
+		option3B = document.createElement("option"),
+		option4B = document.createElement("option"),
+		option5B = document.createElement("option"),
+		option6B = document.createElement("option"),
+		fragileSelect = document.createElement("select"),
+		fragileOption1 = document.createElement("option"),
+		fragileOption2 = document.createElement("option"),
+		fragileOption3 = document.createElement("option"),
 		input2 = document.createElement("input"),
 		label1 = document.createElement("label"),
 		label2 = document.createElement("label"),
-		label3 = document.createElement("label");
+		label3 = document.createElement("label"),
+		label4 = document.createElement("label"),
+		label5 = document.createElement("label");
 
 	roomNumber = roomNumber + 1;
 	
-	//Label for Room Name
-	label1.setAttribute("for", "roomName" + roomNumber);
-	label1.appendChild(document.createTextNode("Room Name:"));
-	container.appendChild(label1);
-	//Room Name
-	input1.type = "text";
-	input1.id = "roomName" + roomNumber;
-	container.appendChild(input1);
-	//Label for Furnished
-	label2.setAttribute("for", "roomFurnished" + roomNumber);
-	label2.appendChild(document.createTextNode("Furnished:"));
-	container.appendChild(label2);
-	//Furnished
-	selectList.id = "roomFurnished" + roomNumber;
-	container.appendChild(selectList);
-	option1.disabled = true;
-	option1.selected = true;
-	option1.text = " -- select an option -- ";
-	selectList.appendChild(option1);
-	option2.value = "lightly";
-	option2.text = "Lightly (500lbs)";
-	selectList.appendChild(option2);
-	option3.value = "medium";
-	option3.text = "Medium (1000lbs)";
-	selectList.appendChild(option3);
-	option4.value = "heavy";
-	option4.text = "Heavy (2000lbs)";
-	selectList.appendChild(option4);
-	//Label for Room Details
-	label3.setAttribute("for", "roomDetail" + roomNumber);
-	label3.appendChild(document.createTextNode("Additional details..."));
-	container.appendChild(label3);
-	//Room Detail
-	input2.type="text";
-	input2.id = "roomDetail" + roomNumber;
-	container.appendChild(input2);
-	container.appendChild(document.createElement("br"));
-	container.appendChild(document.createElement("br"));
+	if(roomNumber <= 9) {
+		//Label for Room Name
+		label1.setAttribute("for", "roomName" + roomNumber);
+		label1.appendChild(document.createTextNode("Room Name:"));
+		container.appendChild(label1);
+		//Room Name
+		input1.type = "text";
+		input1.id = "roomName" + roomNumber;
+		container.appendChild(input1);
+		//Label for Furnished
+		label2.setAttribute("for", "roomFurnished" + roomNumber);
+		label2.appendChild(document.createTextNode("Furnished:"));
+		container.appendChild(label2);
+		//Furnished
+		selectListA.id = "roomFurnished" + roomNumber;
+		container.appendChild(selectListA);
+		option1A.disabled = true;
+		option1A.selected = true;
+		option1A.value = "";
+		option1A.text = " -- select an option -- ";
+		selectListA.appendChild(option1A);
+		option2A.value = "light";
+		option2A.text = "Lightly Furnished (500lbs)";
+		selectListA.appendChild(option2A);
+		option3A.value = "medium";
+		option3A.text = "Medium Furnished (1000lbs)";
+		selectListA.appendChild(option3A);
+		option4A.value = "heavy";
+		option4A.text = "Heavily Furnished (2000lbs)";
+		selectListA.appendChild(option4A);
+		//Label for Floor Type
+		label5.setAttribute("for", "floorType" + roomNumber);
+		label5.appendChild(document.createTextNode("Floor Type:"));
+		container.appendChild(label5);
+		//Floor Type
+		selectListB.id = "floorType" + roomNumber;
+		container.appendChild(selectListB);
+		option1B.disabled = true;
+		option1B.selected = true;
+		option1B.value = "";
+		option1B.text = " -- select an option -- ";
+		selectListB.appendChild(option1B);
+		option2B.value = "carpet";
+		option2B.text = "Carpet";
+		selectListB.appendChild(option2B);
+		option3B.value = "hardwood";
+		option3B.text = "Hardwood";
+		selectListB.appendChild(option3B);
+		option4B.value = "ceramic";
+		option4B.text = "Ceramic";
+		selectListB.appendChild(option4B);
+		option5B.value = "laminate";
+		option5B.text = "Laminate";
+		selectListB.appendChild(option5B);
+		option6B.value = "other";
+		option6B.text = "Other";
+		selectListB.appendChild(option6B);
+		//Label for Fragile
+		label4.setAttribute("for", "fragilePieces" + roomNumber);
+		label4.appendChild(document.createTextNode("Fragile Pieces:"));
+		container.appendChild(label4);
+		//Fragile
+		fragileSelect.id = "fragilePieces" + roomNumber;
+		container.appendChild(fragileSelect);
+		fragileOption1.disabled = true;
+		fragileOption1.selected = true;
+		fragileOption1.value = "";
+		fragileOption1.text = " -- select an option -- ";
+		fragileSelect.appendChild(fragileOption1);
+		fragileOption2.value = "yes";
+		fragileOption2.text = "Yes";
+		fragileSelect.appendChild(fragileOption2);
+		fragileOption3.value = "no";
+		fragileOption3.text = "No";
+		fragileSelect.appendChild(fragileOption3);
+		//Label for Room Details
+		label3.setAttribute("for", "roomDetail" + roomNumber);
+		label3.appendChild(document.createTextNode("Additional details..."));
+		container.appendChild(label3);
+		//Room Detail
+		input2.type="text";
+		input2.id = "roomDetail" + roomNumber;
+		container.appendChild(input2);
+		container.appendChild(document.createElement("br"));
+		container.appendChild(document.createElement("br"));
+	}
 }
 
 function initLocalStorage() {

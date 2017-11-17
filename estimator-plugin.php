@@ -64,20 +64,21 @@ class wp_estimatorTool extends WP_Widget {
 		<textarea row="4" col="50" id="comments"></textarea>
 		<label for="whomoveing">Who is packing?</label>
 		<select id="whomoveing">
-			<option disabled selected> -- select an option -- </option>
-			<option value="Owner">Owner</option>
-			<option value="Partial Packing">Partial packing requested</option>
-			<option value="Full Packing">Full packing requested</option>
-			<option value="Unpacking">Unpacking requested</option>
+			<option value="" disabled selected> -- select an option -- </option>
+			<option value="owner">Owner</option>
+			<option value="partial">Partial Packing Requested</option>
+			<option value="full">Full Packing Requested</option>
+			<option value="unpacking">Unpacking Requested</option>
 		</select>
 		<label for="fromzip">Moving from Zipcode:</label>
 		<input type="text" id="fromzip">
 		<label for="hometype">Home Type:</label>
 		<select id="hometype">
-			<option disabled selected> -- select an option -- </option>
-			<option value="Condo/Apartment">Condo/Apartment</option>
-			<option value="Townhome">Townhome</option>
-			<option value="Single">Single Home</option>
+			<option value="" disabled selected> -- select an option -- </option>
+			<option value="house">House</option>
+			<option value="townhouse">Townhouse</option>
+			<option value="apartment">Apartment</option>
+			<option value="condo">Condo</option>
 		</select>
 		<label for="tozip">Moving to Zipcode:</label>
 		<input type="text" id="tozip"><br><br>
@@ -87,10 +88,25 @@ class wp_estimatorTool extends WP_Widget {
 			<input type="text" id="roomName0">
 			<label for="roomFurnished0">Furnished:</label>
 			<select id="roomFurnished0">
-				<option disabled selected> -- select an option -- </option>
-				<option value="lightly">Lightly (500lbs)</option>
-				<option value="medium">Medium (1000lbs)</option>
-				<option value="heavy">Heavy (2000lbs)</option>
+				<option value="" disabled selected> -- select an option -- </option>
+				<option value="light">Lightly Furnished (500lbs)</option>
+				<option value="medium">Medium Furnished (1000lbs)</option>
+				<option value="heavy">Heavily Furnished (2000lbs)</option>
+			</select>
+			<label for="floorType0">Floor Type:</label>
+			<select id="floorType0">
+				<option value="" disabled selected> -- select an option -- </option>
+				<option value="carpet">Carpet</option>
+				<option value="hardwood">Hardwood</option>
+				<option value="ceramic">Ceramic</option>
+				<option value="laminate">Laminate</option>
+				<option value="other">Other</option>
+			</select>
+			<label for="fragilePieces0">Fragile Pieces:</label>
+			<select id="fragilePieces0">
+				<option value="" disabled selected> -- select an option -- </option>
+				<option value="yes">Yes</option>
+				<option value="no">No</option>
 			</select>
 			<label for="roomDetail0">Additional details...</label>
 			<input type="text" id="roomDetail0"><br><br>
