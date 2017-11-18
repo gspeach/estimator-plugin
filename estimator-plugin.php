@@ -44,7 +44,7 @@ class wp_estimatorTool extends WP_Widget {
 		<label for="lastname">Last Name:</label>
 		<input type="text" id="lastname">
 		<label for="email">Email:</label>
-		<input type="email" id="email" placeholder="something@gmail.com">
+		<input type="text" id="email" placeholder="something@gmail.com">
 		<label for="phone">Phone Number:</label>
 		<input type="text" id="phone" placeholder="123-456-7891">
 		<label for="date">Move Date:</label>
@@ -85,7 +85,7 @@ class wp_estimatorTool extends WP_Widget {
 		<div id="rooms">
 			<p>Give us details by room. Click the (+) to add more fields.</p>
 			<label for="roomName0">Room Name:</label>
-			<input type="text" id="roomName0">
+			<input class="roomNameLabel" type="text" id="roomName0">
 			<label for="roomFurnished0">Furnished:</label>
 			<select id="roomFurnished0">
 				<option value="" disabled selected> -- select an option -- </option>

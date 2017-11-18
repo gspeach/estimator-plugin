@@ -109,7 +109,8 @@ submitThree.onclick = function(){
 		whomoveing = document.getElementById("whomoveing").value,
 		fromzip = document.getElementById("fromzip").value,
 		hometype = document.getElementById("hometype").value,
-		tozip = document.getElementById("tozip").value;
+		tozip = document.getElementById("tozip").value,
+		roomCount = document.getElementsByClassName("roomNameLabel").length;
 
 	document.getElementById("errors").innerHTML = "";
 
@@ -138,11 +139,13 @@ submitThree.onclick = function(){
 	}
 
 	localStorage.setItem("comments", comments);
-	
-	while (document.getElementById("roomName"+i) != null){
-		room = [document.getElementById("roomName"+i).value, document.getElementById("roomFurnished"+i).value, document.getElementById("roomDetail"+i).value]
-		localStorage.setItem("room"+i, room);
-		i = i+1;
+
+	for (var i = 0; i < roomCount; i++) {
+		localStorage.setItem("roomName"+i, document.getElementById("roomName"+i).value);
+		localStorage.setItem("roomFurnished"+i, document.getElementById("roomFurnished"+i).value);
+		localStorage.setItem("floorType"+i, document.getElementById("floorType"+i).value);
+		localStorage.setItem("fragilePieces"+i, document.getElementById("fragilePieces"+i).value);
+		localStorage.setItem("roomDetail"+i, document.getElementById("roomDetail"+i).value);
 	}
 
 	if (errors.length > 0) {
@@ -199,6 +202,7 @@ roomButton.onclick = function(){
 		//Room Name
 		input1.type = "text";
 		input1.id = "roomName" + roomNumber;
+		input1.className += "roomNameLabel";
 		container.appendChild(input1);
 		//Label for Furnished
 		label2.setAttribute("for", "roomFurnished" + roomNumber);
@@ -285,36 +289,159 @@ function initLocalStorage() {
 	localStorage.setItem("email", '');
 	localStorage.setItem("phone", '');
 	localStorage.setItem("date", '');
+	localStorage.setItem("comments", '');
 	localStorage.setItem("whomoveing", '');
 	localStorage.setItem("fromzip", '');
 	localStorage.setItem("hometype", '');
 	localStorage.setItem("tozip", '');
-	localStorage.setItem("comments", '');
-	localStorage.setItem("room0", '');
+
+	for (var i = 0; i < 10; i++) {
+		localStorage.setItem("roomName"+i, '');
+		localStorage.setItem("roomFurnished"+i, '');
+		localStorage.setItem("floorType"+i, '');
+		localStorage.setItem("fragilePieces"+i, '');
+		localStorage.setItem("roomDetail"+i, '');
+	}
 }
 
 function sendForm() {
-	var firstname = localStorage.getItem("firstname"),
+	var i,
+		firstname = localStorage.getItem("firstname"),
 		lastname = localStorage.getItem("lastname"),
 		email = localStorage.getItem("email"),
 		phone = localStorage.getItem("phone"),
 		date = localStorage.getItem("date"),
+		comments = localStorage.getItem("comments");
 		whomoveing = localStorage.getItem("whomoveing"),
 		fromzip = localStorage.getItem("fromzip"),
 		hometype = localStorage.getItem("hometype"),
 		tozip = localStorage.getItem("tozip"),
-		comments = localStorage.getItem("comments");
+		roomName1 = localStorage.getItem("roomName0"),
+		roomFurnished1 = localStorage.getItem("roomFurnished0"),
+		floorType1 = localStorage.getItem("floorType0"),
+		fragilePieces1 = localStorage.getItem("fragilePieces0"),
+		roomDetail1 = localStorage.getItem("roomDetail0"),
+		roomName2 = localStorage.getItem("roomName1"),
+		roomFurnished2 = localStorage.getItem("roomFurnished1"),
+		floorType2 = localStorage.getItem("floorType1"),
+		fragilePieces2 = localStorage.getItem("fragilePieces1"),
+		roomDetail2 = localStorage.getItem("roomDetail1"),
+		roomName3 = localStorage.getItem("roomName2"),
+		roomFurnished3 = localStorage.getItem("roomFurnished2"),
+		floorType3 = localStorage.getItem("floorType2"),
+		fragilePieces3 = localStorage.getItem("fragilePieces2"),
+		roomDetail3 = localStorage.getItem("roomDetail2"),
+		roomName4 = localStorage.getItem("roomName3"),
+		roomFurnished4 = localStorage.getItem("roomFurnished3"),
+		floorType4 = localStorage.getItem("floorType3"),
+		fragilePieces4 = localStorage.getItem("fragilePieces3"),
+		roomDetail4 = localStorage.getItem("roomDetail3"),
+		roomName5 = localStorage.getItem("roomName4"),
+		roomFurnished5 = localStorage.getItem("roomFurnished4"),
+		floorType5 = localStorage.getItem("floorType4"),
+		fragilePieces5 = localStorage.getItem("fragilePieces4"),
+		roomDetail5 = localStorage.getItem("roomDetail4"),
+		roomName6 = localStorage.getItem("roomName5"),
+		roomFurnished6 = localStorage.getItem("roomFurnished5"),
+		floorType6 = localStorage.getItem("floorType5"),
+		fragilePieces6 = localStorage.getItem("fragilePieces5"),
+		roomDetail6 = localStorage.getItem("roomDetail5"),
+		roomName7 = localStorage.getItem("roomName6"),
+		roomFurnished7 = localStorage.getItem("roomFurnished6"),
+		floorType7 = localStorage.getItem("floorType6"),
+		fragilePieces7 = localStorage.getItem("fragilePieces6"),
+		roomDetail7 = localStorage.getItem("roomDetail6"),
+		roomName8 = localStorage.getItem("roomName7"),
+		roomFurnished8 = localStorage.getItem("roomFurnished7"),
+		floorType8 = localStorage.getItem("floorType7"),
+		fragilePieces8 = localStorage.getItem("fragilePieces7"),
+		roomDetail8 = localStorage.getItem("roomDetail7"),
+		roomName9 = localStorage.getItem("roomName8"),
+		roomFurnished9 = localStorage.getItem("roomFurnished8"),
+		floorType9 = localStorage.getItem("floorType8"),
+		fragilePieces9 = localStorage.getItem("fragilePieces8"),
+		roomDetail9 = localStorage.getItem("roomDetail8"),
+		roomName10 = localStorage.getItem("roomName9"),
+		roomFurnished10 = localStorage.getItem("roomFurnished9"),
+		floorType10 = localStorage.getItem("floorType9"),
+		fragilePieces10 = localStorage.getItem("fragilePieces9"),
+		roomDetail10 = localStorage.getItem("roomDetail9");
 
-	console.log(firstname);
-	console.log(lastname);
-	console.log(email);
-	console.log(phone);
-	console.log(date);
-	console.log(whomoveing);
-	console.log(fromzip);
-	console.log(hometype);
-	console.log(tozip);
-	console.log(comments);
+	jQuery(document).ready( function($) {
+		$.ajax({
+			method: "POST",
+			url: "http://htm-crm.gzstudios.net/index.php?entryPoint=WebToPersonCapture",
+			data: { 
+					first_name: firstname, 
+					last_name: lastname,
+					email1: email,
+					phone_custom_c: phone,
+					move_date_c: date,
+					comments_c: comments,
+					who_is_packing_c: whomoveing,
+					from_zip_code_c: fromzip,
+					house_type_c: hometype,
+					to_zip_code_c: tozip,
+					room_name1_c: roomName1,
+					furnished1_c: roomFurnished1,
+					floor_type1_c: floorType1,
+					fragile_pieces1_c: fragilePieces1,
+					additional_details1_c: roomDetail1,
+					room_name2_c: roomName2,
+					furnished2_c: roomFurnished2,
+					floor_type2_c: floorType2,
+					fragile_pieces2_c: fragilePieces2,
+					additional_details2_c: roomDetail2,
+					room_name3_c: roomName3,
+					furnished3_c: roomFurnished3,
+					floor_type3_c: floorType3,
+					fragile_pieces3_c: fragilePieces3,
+					additional_details3_c: roomDetail3,
+					room_name4_c: roomName4,
+					furnished4_c: roomFurnished4,
+					floor_type4_c: floorType4,
+					fragile_pieces4_c: fragilePieces4,
+					additional_details4_c: roomDetail4,
+					room_name5_c: roomName5,
+					furnished5_c: roomFurnished5,
+					floor_type5_c: floorType5,
+					fragile_pieces5_c: fragilePieces5,
+					additional_details5_c: roomDetail5,
+					room_name6_c: roomName6,
+					furnished6_c: roomFurnished6,
+					floor_type6_c: floorType6,
+					fragile_pieces6_c: fragilePieces6,
+					additional_details6_c: roomDetail6,
+					room_name7_c: roomName7,
+					furnished7_c: roomFurnished7,
+					floor_type7_c: floorType7,
+					fragile_pieces7_c: fragilePieces7,
+					additional_details7_c: roomDetail7,
+					room_name8_c: roomName8,
+					furnished8_c: roomFurnished8,
+					floor_type8_c: floorType8,
+					fragile_pieces8_c: fragilePieces8,
+					additional_details8_c: roomDetail8,
+					room_name9_c: roomName9,
+					furnished9_c: roomFurnished9,
+					floor_type9_c: floorType9,
+					fragile_pieces9_c: fragilePieces9,
+					additional_details9_c: roomDetail9,
+					room_name10_c: roomName10,
+					furnished10_c: roomFurnished10,
+					floor_type10_c: floorType10,
+					fragile_pieces10_c: fragilePieces10,
+					additional_details10_c: roomDetail10,
+					Submit: 'Submit',
+					campaign_id: 'e5de65d8-e5f7-cd39-3ef1-59d643bffa57',
+					assigned_user_id: 1,
+					moduleDir: 'Leads'
+				  },
+			success: function( data ) {
+				console.log(data)
+			}
+		})
+	})
 }
 
 function closeAll() {
