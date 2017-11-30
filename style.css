@@ -37,6 +37,14 @@
     cursor: pointer;
 }
 
-.formdisplay {
-	visibility: hidden;
+.errorMessages{
+	color: #DC143C;
+}
+
+.formParagraphSpacing{
+	margin-bottom: 15px;
+}
+
+.formSelect{
+	display: block;
 }

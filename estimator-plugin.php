@@ -28,7 +28,7 @@ class wp_estimatorTool extends WP_Widget {
 	function widget($args, $instance) {
 		echo ' 
 <!--Trigger/Open the Modal -->
-<button id="button">Open Modal</button>
+<button id="button">Get Your FREE Moving Quote!</button>
 
 <!-- Form Modal -->
 <div id="modal" class="modal" >
@@ -36,34 +36,36 @@ class wp_estimatorTool extends WP_Widget {
 <!-- Modal content -->
 <div class="modal-content">
 	<span class="close">&times;</span>
-	<span id="errors" class="errors"></span>
+	<span id="errors" class="errorMessages"></span>
 	<form id="form1" style="display: none">
-		<p>Get your free quote by filling out the form!</p>
+		<p>Please fill out the following form to get started!</p>
 		<label for="firstname">First Name:</label>
-		<input type="text" id="firstname">
+		<input title="Please provide your first name here." type="text" id="firstname">
 		<label for="lastname">Last Name:</label>
-		<input type="text" id="lastname">
+		<input title="Please provide your last name here." type="text" id="lastname">
 		<label for="email">Email:</label>
-		<input type="text" id="email" placeholder="something@gmail.com">
+		<input title="Please provide your email here." type="text" id="email" placeholder="something@gmail.com">
 		<label for="phone">Phone Number:</label>
-		<input type="text" id="phone" placeholder="123-456-7891">
+		<input title="Please provide your phone number here." type="text" id="phone" placeholder="123-456-7891">
 		<label for="date">Move Date:</label>
-		<input type="text" id="date" placeholder="11/02/2017"><br><br>
+		<input title="Please tell us when you plan on moving." type="text" id="date" placeholder="11/02/2017"><br><br>
 		<input id="submitOne" type="button" value="Submit">
 	</form>
 	
 	<form id="form2" style="display: none">
-		<p>Thank you! Please tell us more?</p>
+		<p class="formParagraphSpacing"> Thank you for providing us with your information!</p>
+		<p class="formParagraphSpacing">Our sales representatives will be in contact with you shortly to provide you with your free moving quote.</p>
+		<p class="formParagraphSpacing">Would you like to provide additional details about your move to further help us provide you with a more accurate moving quote?</p>
 		<input id="submitTwo" type="button" value="Yes">
 		<input id="cancelTwo" type="button" value="No">
 	</form>
 	
 	<form id="form3" style="display: none">
-		<p>Thanks for providing more information! This will help us give you a more accurate quote.</p>
+		<p>Please fill out the following form to the best of your abilities.</p>
 		<label for="comments">Comments:</label>
-		<textarea row="4" col="50" id="comments"></textarea>
+		<textarea title="Please provide us with any information here." row="4" col="50" id="comments"></textarea>
 		<label for="whomoveing">Who is packing?</label>
-		<select id="whomoveing">
+		<select title="Please select the best title for who is doing the move." id="whomoveing" class="formSelect">
 			<option value="" disabled selected> -- select an option -- </option>
 			<option value="owner">Owner</option>
 			<option value="partial">Partial Packing Requested</option>
@@ -71,9 +73,9 @@ class wp_estimatorTool extends WP_Widget {
 			<option value="unpacking">Unpacking Requested</option>
 		</select>
 		<label for="fromzip">Moving from Zipcode:</label>
-		<input type="text" id="fromzip">
+		<input title="Please provide us with your current location zip code." type="text" id="fromzip">
 		<label for="hometype">Home Type:</label>
-		<select id="hometype">
+		<select title="Please provide us with your current hometype." id="hometype" class="formSelect">
 			<option value="" disabled selected> -- select an option -- </option>
 			<option value="house">House</option>
 			<option value="townhouse">Townhouse</option>
@@ -81,20 +83,20 @@ class wp_estimatorTool extends WP_Widget {
 			<option value="condo">Condo</option>
 		</select>
 		<label for="tozip">Moving to Zipcode:</label>
-		<input type="text" id="tozip"><br><br>
+		<input title="Please provide us with the location zip code you are planning to move to." type="text" id="tozip"><br><br>
 		<div id="rooms">
-			<p>Give us details by room. Click the (+) to add more fields.</p>
+			<p>You may provide us additional details by room. Click the (+) to add more fields for additional rooms.</p>
 			<label for="roomName0">Room Name:</label>
-			<input class="roomNameLabel" type="text" id="roomName0">
+			<input title="Please tell us what kind of room it is." class="roomNameLabel" type="text" id="roomName0">
 			<label for="roomFurnished0">Furnished:</label>
-			<select id="roomFurnished0">
+			<select title="Please specify how furnised this room is." id="roomFurnished0" class="formSelect">
 				<option value="" disabled selected> -- select an option -- </option>
 				<option value="light">Lightly Furnished (500lbs)</option>
 				<option value="medium">Medium Furnished (1000lbs)</option>
 				<option value="heavy">Heavily Furnished (2000lbs)</option>
 			</select>
 			<label for="floorType0">Floor Type:</label>
-			<select id="floorType0">
+			<select title="Please tell us what type of flooring is in this room." id="floorType0" class="formSelect">
 				<option value="" disabled selected> -- select an option -- </option>
 				<option value="carpet">Carpet</option>
 				<option value="hardwood">Hardwood</option>
@@ -103,20 +105,21 @@ class wp_estimatorTool extends WP_Widget {
 				<option value="other">Other</option>
 			</select>
 			<label for="fragilePieces0">Fragile Pieces:</label>
-			<select id="fragilePieces0">
+			<select title="Are there any fragile furniture we need to worry about?" id="fragilePieces0" class="formSelect">
 				<option value="" disabled selected> -- select an option -- </option>
 				<option value="yes">Yes</option>
 				<option value="no">No</option>
 			</select>
 			<label for="roomDetail0">Additional details...</label>
-			<input type="text" id="roomDetail0"><br><br>
+			<input title="Provide us with additional details for this room." type="text" id="roomDetail0"><br><br>
 		</div>
-		<input id="addRooms" type="button" value=" + ">
+		<input title="Click to add additional room form fields." id="addRooms" type="button" value=" + ">
 		<input id="submitThree" type="button" value="Submit">
 	</form>
 
 	<form id="form4" style="display: none">
-		<p>Thank you!</p>
+		<p class="formParagraphSpacing"> Thank you for providing us with your information!</p>
+		<p class="formParagraphSpacing">Our sales representatives will be in contact with you shortly to provide you with your free moving quote.</p>
 		<input id="submitFour" type="button" value="OK"> 
 	</form>
 </div>

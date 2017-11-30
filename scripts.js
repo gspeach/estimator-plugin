@@ -51,6 +51,7 @@ submitOne.onclick = function(){
 
 	if (fname != '') {
 		localStorage.setItem("firstname", fname);
+		document.getElementById("form2p").innerHTML = "Testing";
 	} else {
 		errors.push("First name required!");
 	}
