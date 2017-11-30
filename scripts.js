@@ -156,9 +156,8 @@ submitThree.onclick = function(){
 		form3.style.display = "none";
 		form4.style.display = "block";
 		form3.reset();
+		sendForm();
 	}
-
-	sendForm();
 }
 
 submitFour.onclick = function(){
