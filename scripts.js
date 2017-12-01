@@ -156,9 +156,8 @@ submitThree.onclick = function(){
 		form3.style.display = "none";
 		form4.style.display = "block";
 		form3.reset();
+		sendForm();
 	}
-
-	sendForm();
 }
 
 submitFour.onclick = function(){
@@ -370,7 +369,7 @@ function sendForm() {
 	jQuery(document).ready( function($) {
 		$.ajax({
 			method: "POST",
-			url: "http://htm-crm.gzstudios.net/index.php?entryPoint=WebToPersonCapture",
+			url: "http://suite-crm.gzstudios.net/index.php?entryPoint=WebToPersonCapture",
 			data: { 
 					first_name: firstname, 
 					last_name: lastname,
