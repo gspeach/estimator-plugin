@@ -60,3 +60,16 @@
     color: #ffffff;
     background-color: #262161;
 }
+
+.estimator-tool-home .htm-widget {
+    width: 250px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 55px;
+}
+
+.estimator-tool-home {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
