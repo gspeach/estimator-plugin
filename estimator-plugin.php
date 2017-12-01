@@ -28,7 +28,9 @@ class wp_estimatorTool extends WP_Widget {
 	function widget($args, $instance) {
 		echo ' 
 <!--Trigger/Open the Modal -->
-<button id="button">Open Modal</button>
+<div class="htm-widget">
+	<button id="button">Get a Free Quote</button>
+</div>
 
 <!-- Form Modal -->
 <div id="modal" class="modal" >

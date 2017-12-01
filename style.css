@@ -40,3 +40,23 @@
 .formdisplay {
 	visibility: hidden;
 }
+
+.htm-widget {
+    width: 100%;
+    height: 250px;
+    border: 10px solid rgba(87, 186, 71, 0.66);
+    position: relative;
+    text-align: center;
+}
+
+.htm-widget button {
+    position: relative;
+    display: inline-block;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 15px;
+    color: #ffffff;
+    background-color: #262161;
+}
