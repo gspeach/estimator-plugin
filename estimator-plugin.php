@@ -29,14 +29,14 @@ class wp_estimatorTool extends WP_Widget {
 		echo ' 
 <!--Trigger/Open the Modal -->
 <div class="htm-widget">
-	<button id="button">Get a Free Quote</button>
+	<button class="est-tool-button">Get Your Free Moving Quote</button>
 </div>
 
 <!-- Form Modal -->
-<div id="modal" class="modal" >
+<div id="modal" class="est-tool-modal" >
 
 <!-- Modal content -->
-<div class="modal-content">
+<div id="est-tool-modal-content" class="est-tool-modal-content">
 	<span class="close">&times;</span>
 	<span id="errors" class="errors"></span>
 	<form id="form1" style="display: none">
@@ -45,17 +45,19 @@ class wp_estimatorTool extends WP_Widget {
 		<input type="text" id="firstname">
 		<label for="lastname">Last Name:</label>
 		<input type="text" id="lastname">
-		<label for="email">Email:</label>
-		<input type="text" id="email" placeholder="something@gmail.com">
+		<label for="email-custom">Email:</label>
+		<input type="text" id="email-custom" placeholder="email@domain.com">
 		<label for="phone">Phone Number:</label>
 		<input type="text" id="phone" placeholder="123-456-7891">
 		<label for="date">Move Date:</label>
-		<input type="text" id="date" placeholder="11/02/2017"><br><br>
+		<input type="text" id="date" placeholder="MM/DD/YYYY">
 		<input id="submitOne" type="button" value="Submit">
 	</form>
 	
 	<form id="form2" style="display: none">
-		<p>Thank you! Please tell us more?</p>
+		<p>Thank you for providing us with your information!</p>
+		<p>Our sales representatives will be in contact with you shortly to provide you with your free moving quote.</p>
+		<p>Would you like to provide additional details about your move to further help us provide you with a more accurate moving quote?</p>
 		<input id="submitTwo" type="button" value="Yes">
 		<input id="cancelTwo" type="button" value="No">
 	</form>
@@ -83,7 +85,7 @@ class wp_estimatorTool extends WP_Widget {
 			<option value="condo">Condo</option>
 		</select>
 		<label for="tozip">Moving to Zipcode:</label>
-		<input type="text" id="tozip"><br><br>
+		<input type="text" id="tozip">
 		<div id="rooms">
 			<p>Give us details by room. Click the (+) to add more fields.</p>
 			<label for="roomName0">Room Name:</label>
@@ -111,14 +113,15 @@ class wp_estimatorTool extends WP_Widget {
 				<option value="no">No</option>
 			</select>
 			<label for="roomDetail0">Additional details...</label>
-			<input type="text" id="roomDetail0"><br><br>
+			<input type="text" id="roomDetail0">
 		</div>
 		<input id="addRooms" type="button" value=" + ">
 		<input id="submitThree" type="button" value="Submit">
 	</form>
 
 	<form id="form4" style="display: none">
-		<p>Thank you!</p>
+		<p>Thank you for providing us with your information!</p>
+		<p>Our sales representatives will be in contact with you shortly to provide you with your free moving quote.</p>
 		<input id="submitFour" type="button" value="OK"> 
 	</form>
 </div>

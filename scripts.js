@@ -1,7 +1,7 @@
 // Variables
 var roomNumber = 0, i = 0,
 	modal = document.getElementById("modal"),
-	btn = document.getElementById("button"),
+	btn = document.getElementsByClassName("est-tool-button"),
 	roomButton = document.getElementById("addRooms"),
 	span = document.getElementsByClassName("close")[0],
 	form1 = document.getElementById("form1"),
@@ -14,7 +14,21 @@ var roomNumber = 0, i = 0,
 	submitThree = document.getElementById("submitThree"),
 	submitFour = document.getElementById("submitFour");
 
-// When the user clicks the button, open the first form 
+for(h=0; h< btn.length; h++) {
+ 	btn[h].onclick = function() {
+		if(typeof(Storage) !== "undefined") { //Checks for support
+			modal.style.display = "block";
+			form1.style.display = "block";
+			
+			initLocalStorage();
+		} else { //Displays error message in modal content instead of form.
+			document.getElementById("est-tool-modal-content").innerHTML = "Sorry your broswer does not support Web Storage...";
+		}
+	}
+}
+
+// When the user clicks the button, open the first form
+/*
 btn.onclick = function() {
 	if(typeof(Storage) !== "undefined") { //Checks for support
 		modal.style.display = "block";
@@ -22,9 +36,10 @@ btn.onclick = function() {
 		
 		initLocalStorage();
 	} else { //Displays error message in modal content instead of form.
-		document.getElementById("modal-content").innerHTML = "Sorry your broswer does not support Web Storage...";
+		document.getElementById("est-tool-modal-content").innerHTML = "Sorry your broswer does not support Web Storage...";
 	}
 }
+*/
 
 // When the user clicks on <span> (x), close the form
 span.onclick = function() {
@@ -43,7 +58,7 @@ submitOne.onclick = function(){
 	var errors = [],
 		fname = document.getElementById("firstname").value,
 		lname = document.getElementById("lastname").value,
-		email = document.getElementById("email").value,
+		email = document.getElementById("email-custom").value,
 		phone = document.getElementById("phone").value,
 		date = document.getElementById("date").value;
 
@@ -110,11 +125,11 @@ submitThree.onclick = function(){
 		fromzip = document.getElementById("fromzip").value,
 		hometype = document.getElementById("hometype").value,
 		tozip = document.getElementById("tozip").value,
-		roomCount = document.getElementsByClassName("roomNameLabel").length;
+		roomCount = document.getElementsByClassName("roomNameLabel").length - 1;
 
 	document.getElementById("errors").innerHTML = "";
 
-	if (whomoveing != '-- select an option --') {
+	if (whomoveing != '') {
 		localStorage.setItem("whomoveing", whomoveing);
 	} else {
 		errors.push("Who is moving required!");
@@ -126,7 +141,7 @@ submitThree.onclick = function(){
 		errors.push("From zip is missing or incorrect!");
 	}
 
-	if (hometype != '-- select an option --') {
+	if (hometype != '') {
 		localStorage.setItem("hometype", hometype);
 	} else {
 		errors.push("Hometype is required!");
@@ -141,16 +156,22 @@ submitThree.onclick = function(){
 	localStorage.setItem("comments", comments);
 
 	for (var i = 0; i < roomCount; i++) {
-		localStorage.setItem("roomName"+i, document.getElementById("roomName"+i).value);
-		localStorage.setItem("roomFurnished"+i, document.getElementById("roomFurnished"+i).value);
-		localStorage.setItem("floorType"+i, document.getElementById("floorType"+i).value);
-		localStorage.setItem("fragilePieces"+i, document.getElementById("fragilePieces"+i).value);
-		localStorage.setItem("roomDetail"+i, document.getElementById("roomDetail"+i).value);
+		var roomName = document.getElementById("roomName"+i).value,
+			roomFurnished = document.getElementById("roomFurnished"+i).value,
+			floorType = document.getElementById("floorType"+i).value,
+			fragilePieces = document.getElementById("fragilePieces"+i).value,
+			roomDetail = document.getElementById("roomDetail"+i).value;
+
+		if(typeof roomName !== 'undefined' && roomName !== null) { localStorage.setItem("roomName"+i, roomName); }
+		if(typeof roomFurnished !== 'undefined' && roomFurnished !== null) { localStorage.setItem("roomFurnished"+i, roomFurnished); }
+		if(typeof floorType !== 'undefined' && floorType !== null) { localStorage.setItem("floorType"+i, floorType); }
+		if(typeof fragilePieces !== 'undefined' && fragilePieces !== null) { localStorage.setItem("fragilePieces"+i, fragilePieces); }
+		if(typeof roomDetail !== 'undefined' && roomDetail !== null) { localStorage.setItem("roomDetail"+i, roomDetail); }
 	}
 
 	if (errors.length > 0) {
 		for (var j = errors.length - 1; j >= 0; j--) {
-			document.getElementById("errors").innerHTML += errors[i] + "<br>";
+			document.getElementById("errors").innerHTML += errors[j] + "<br>";
 		}
 	} else {
 		form3.style.display = "none";
@@ -189,11 +210,13 @@ roomButton.onclick = function(){
 		label2 = document.createElement("label"),
 		label3 = document.createElement("label"),
 		label4 = document.createElement("label"),
-		label5 = document.createElement("label");
+		label5 = document.createElement("label"),
+		hr = document.createElement("hr");
 
 	roomNumber = roomNumber + 1;
 	
 	if(roomNumber <= 9) {
+		container.appendChild(hr);
 		//Label for Room Name
 		label1.setAttribute("for", "roomName" + roomNumber);
 		label1.appendChild(document.createTextNode("Room Name:"));
@@ -277,8 +300,6 @@ roomButton.onclick = function(){
 		input2.type="text";
 		input2.id = "roomDetail" + roomNumber;
 		container.appendChild(input2);
-		container.appendChild(document.createElement("br"));
-		container.appendChild(document.createElement("br"));
 	}
 }
 
@@ -437,7 +458,7 @@ function sendForm() {
 					moduleDir: 'Leads'
 				  },
 			success: function( data ) {
-				console.log(data)
+				//console.log(data)
 			}
 		})
 	})

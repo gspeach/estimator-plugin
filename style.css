@@ -1,9 +1,9 @@
 /* The Modal (background) */
-.modal {
+.est-tool-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    z-index: 3; /* Sit on top */
+    padding-top: 0; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -14,12 +14,66 @@
 }
 
 /* Modal Content */
-.modal-content {
+.est-tool-modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 60%;
+}
+
+.est-tool-modal .est-tool-modal-content p {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.est-tool-modal .est-tool-modal-content form {
+    text-align: left;
+}
+
+.est-tool-modal .est-tool-modal-content form label {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.est-tool-modal .est-tool-modal-content form input {
+    display: block;
+    margin-bottom: 15px;
+    width: 50%;
+}
+
+.est-tool-modal .est-tool-modal-content input[type=button] {
+    width: auto;
+    color: #ffffff;
+    background-color: #262161;
+}
+
+.est-tool-modal .est-tool-modal-content select {
+    border: 1px solid black;
+    box-shadow: none;
+    max-width: 100%;
+    margin-bottom: 15px;
+    width: 50%;
+}
+
+.est-tool-modal .est-tool-modal-content textarea {
+    margin-left: 0 !important;
+    width: 50%;
+}
+
+.est-tool-modal .est-tool-modal-content #form2 input[type=button] {
+    display: inline-block;
+}
+
+.est-tool-modal .est-tool-modal-content .errors {
+    display: block;
+    width: 100%;
+    color: red;
+    text-align: left;
 }
 
 /* The Close Button */
@@ -42,11 +96,12 @@
 }
 
 .htm-widget {
-    width: 100%;
+    width: auto;
     height: 250px;
     border: 10px solid rgba(87, 186, 71, 0.66);
     position: relative;
     text-align: center;
+    margin-bottom: 75px;
 }
 
 .htm-widget button {
@@ -63,8 +118,7 @@
 
 .estimator-tool-home .htm-widget {
     width: 250px;
-    float: right;
-    margin-right: 15px;
+    margin-right: 30px;
     margin-top: 55px;
 }
 
@@ -72,4 +126,164 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1024px) and (max-width : 1200px) {
+    .estimator-tool-home .htm-widget {
+        margin-top: 50px;
+    }
+
+    .est-tool-modal .est-tool-modal-content form input, 
+    .est-tool-modal .est-tool-modal-content form input#fromzip, 
+    .est-tool-modal .est-tool-modal-content form input#tozip,
+    .est-tool-modal .est-tool-modal-content form textarea,
+    .est-tool-modal .est-tool-modal-content form select {
+        width: 50%;
+    }
+}
+
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 826px) and (max-width : 1023px) {
+    .htm-widget {
+        width: 320px;
+        margin: 0 auto 75px;
+    }
+
+    .estimator-tool-home {
+        position: relative;
+        text-align: center;
+    }
+
+    .estimator-tool-home .htm-widget {
+        display: inline-block;
+        margin: 100px auto 0;
+        width: 410px;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width : 1023px) {
+    .htm-widget {
+        width: 320px;
+        margin: 0 auto 75px;
+    }
+
+    .estimator-tool-home {
+        position: relative;
+        text-align: center;
+    }
+
+    .estimator-tool-home .htm-widget {
+        display: inline-block;
+        margin: 100px auto 0;
+        width: 410px;
+    }
+
+    .est-tool-modal .est-tool-modal-content form input, 
+    .est-tool-modal .est-tool-modal-content form input#fromzip, 
+    .est-tool-modal .est-tool-modal-content form input#tozip,
+    .est-tool-modal .est-tool-modal-content form textarea,
+    .est-tool-modal .est-tool-modal-content form select {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width : 825px) {
+    .htm-widget {
+        width: 320px;
+        margin: 0 auto 75px;
+    }
+
+    .estimator-tool-home {
+        position: relative;
+        text-align: center;
+    }
+
+    .estimator-tool-home .htm-widget {
+        display: inline-block;
+        margin: 100px auto 0;
+        width: 320px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 481px) and (max-width : 768px) {
+    .htm-widget {
+        width: 320px;
+        margin: 0 auto 75px;
+    }
+
+    .estimator-tool-home {
+        position: relative;
+        text-align: center;
+    }
+
+    .estimator-tool-home .htm-widget {
+        display: inline-block;
+        margin: 100px auto 0;
+        width: 320px;
+    }
+
+    .est-tool-modal .est-tool-modal-content form input, 
+    .est-tool-modal .est-tool-modal-content form input#fromzip, 
+    .est-tool-modal .est-tool-modal-content form input#tozip,
+    .est-tool-modal .est-tool-modal-content form textarea,
+    .est-tool-modal .est-tool-modal-content form select {
+        width: 100%;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width: 321px) and (max-width : 480px) {
+    .htm-widget {
+        width: 320px;
+        margin: 0 auto 75px;
+    }
+
+    .estimator-tool-home {
+        position: relative;
+        text-align: center;
+    }
+
+    .estimator-tool-home .htm-widget {
+        display: inline-block;
+        margin: 100px auto 0;
+        width: 320px;
+    }
+
+    .est-tool-modal .est-tool-modal-content form input, 
+    .est-tool-modal .est-tool-modal-content form input#fromzip, 
+    .est-tool-modal .est-tool-modal-content form input#tozip,
+    .est-tool-modal .est-tool-modal-content form textarea,
+    .est-tool-modal .est-tool-modal-content form select {
+        width: 100%;
+    }
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+    .htm-widget {
+        width: 320px;
+        margin: 0 auto 75px;
+    }
+
+    .estimator-tool-home {
+        position: relative;
+        text-align: center;
+    }
+
+    .estimator-tool-home .htm-widget {
+        display: inline-block;
+        margin: 100px auto 0;
+        width: 320px;
+    }
+
+    .est-tool-modal .est-tool-modal-content form input, 
+    .est-tool-modal .est-tool-modal-content form input#fromzip, 
+    .est-tool-modal .est-tool-modal-content form input#tozip,
+    .est-tool-modal .est-tool-modal-content form textarea,
+    .est-tool-modal .est-tool-modal-content form select {
+        width: 100%;
+    }
 }
