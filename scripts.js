@@ -465,6 +465,7 @@ function sendForm() {
 }
 
 function closeAll() {
+	document.getElementById("errors").innerHTML = "";
 	modal.style.display = "none";
 	form1.style.display = "none";
 	form1.reset();
