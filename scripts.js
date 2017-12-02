@@ -115,7 +115,7 @@ submitThree.onclick = function(){
 
 	document.getElementById("errors").innerHTML = "";
 
-	if (whomoveing != '-- select an option --') {
+	if (whomoveing != '') {
 		localStorage.setItem("whomoveing", whomoveing);
 	} else {
 		errors.push("Who is moving required!");
@@ -127,7 +127,7 @@ submitThree.onclick = function(){
 		errors.push("From zip is missing or incorrect!");
 	}
 
-	if (hometype != '-- select an option --') {
+	if (hometype != '') {
 		localStorage.setItem("hometype", hometype);
 	} else {
 		errors.push("Hometype is required!");

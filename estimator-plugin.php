@@ -66,7 +66,7 @@ class wp_estimatorTool extends WP_Widget {
 		<textarea title="Please provide us with any information here." row="4" col="50" id="comments"></textarea>
 		<label for="whomoveing">Who is packing?</label>
 		<select title="Please select the best title for who is doing the move." id="whomoveing" class="formSelect">
-			<option value="" disabled selected> -- select an option -- </option>
+			<option value="whomoveing" disabled selected> -- select an option -- </option>
 			<option value="owner">Owner</option>
 			<option value="partial">Partial Packing Requested</option>
 			<option value="full">Full Packing Requested</option>
