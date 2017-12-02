@@ -102,6 +102,7 @@
     position: relative;
     text-align: center;
     margin-bottom: 75px;
+    background: rgba(51, 51, 51, 0.33)
 }
 
 .htm-widget button {
@@ -114,6 +115,7 @@
     padding: 15px;
     color: #ffffff;
     background-color: #262161;
+    font-size: 18px;
 }
 
 .estimator-tool-home .htm-widget {

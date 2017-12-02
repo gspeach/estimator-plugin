@@ -87,7 +87,7 @@ class wp_estimatorTool extends WP_Widget {
 		<label for="tozip">Moving to Zipcode:</label>
 		<input type="text" id="tozip">
 		<div id="rooms">
-			<p>Give us details by room. Click the (+) to add more fields.</p>
+			<p>Give us details by room. Click the (+) to add another room.</p>
 			<label for="roomName0">Room Name:</label>
 			<input class="roomNameLabel" type="text" id="roomName0">
 			<label for="roomFurnished0">Furnished:</label>
@@ -115,7 +115,8 @@ class wp_estimatorTool extends WP_Widget {
 			<label for="roomDetail0">Additional details...</label>
 			<input type="text" id="roomDetail0">
 		</div>
-		<input id="addRooms" type="button" value=" + ">
+		<p>Click the (+) to add another room.</p>
+		<input id="addRooms" title="Click to add additional room form fields." type="button" value=" + ">
 		<input id="submitThree" type="button" value="Submit">
 	</form>
 
