@@ -132,7 +132,7 @@ submitThree.onclick = function(){
 	if (whomoveing != '') {
 		localStorage.setItem("whomoveing", whomoveing);
 	} else {
-		errors.push("Who is moving required!");
+		errors.push("Who is packing required!");
 	}
 
 	if (fromzip != '' && validateZip(fromzip)) {
